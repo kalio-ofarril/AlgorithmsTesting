@@ -16,16 +16,16 @@ public class EmployeeSorter {
         this.employees = new Employee[size];
     }
 
-    public void sort(){
-        for(int i=0; i<=this.employees.length-1; i++){
-            Employee current = employees[i];
-            int j = i-1;
-            while(j>=0 && this.employees[j].getEmployeeNumber() > current.getEmployeeNumber()){
-                this.employees[j+1] = this.employees[j];
-                j--;
-            }
-            this.employees[j+1] = current;
-        }
+    public void sort2(){
+        // for(int i=0; i<=this.employees.length-1; i++){
+        //     Employee current = employees[i];
+        //     int j = i-1;
+        //     while(j>=0 && this.employees[j].getEmployeeNumber() > current.getEmployeeNumber()){
+        //         this.employees[j+1] = this.employees[j];
+        //         j--;
+        //     }
+        //     this.employees[j+1] = current;
+        // }
     }
 
     public static void main(String[] args) {

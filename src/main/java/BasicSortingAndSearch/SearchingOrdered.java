@@ -14,6 +14,10 @@ public class SearchingOrdered {
         this.data = new Integer[size];
     }
 
+    /*
+     * A fast way to search in an ordered array. In the worst case scenario the search is 
+     * in the order of log_(2)(n).
+     */
     public int binarySearch(int item){
         int maxIndex = this.getDataSize()-1;
         int minIndex = 0;
