@@ -12,31 +12,51 @@ public class EmployeeSorter {
 
     public Employee[] employees;
 
-    public EmployeeSorter(int size){
+    public EmployeeSorter(int size) {
         this.employees = new Employee[size];
     }
 
-    public void sort2(){
+    public void sort2() {
         // for(int i=0; i<=this.employees.length-1; i++){
-        //     Employee current = employees[i];
-        //     int j = i-1;
-        //     while(j>=0 && this.employees[j].getEmployeeNumber() > current.getEmployeeNumber()){
-        //         this.employees[j+1] = this.employees[j];
-        //         j--;
-        //     }
-        //     this.employees[j+1] = current;
+        // Employee current = employees[i];
+        // int j = i-1;
+        // while(j>=0 && this.employees[j].getEmployeeNumber() >
+        // current.getEmployeeNumber()){
+        // this.employees[j+1] = this.employees[j];
+        // j--;
         // }
+        // this.employees[j+1] = current;
+        // }
+    }
+
+    public void sort() {
+
+        for (int i = 0; i <= this.employees.length - 1; i++) {
+            System.out.println(this.employees[i].toString());
+
+            Employee temp = this.employees[i];
+
+            int j = i - 1;
+            while (j >= 0) {
+                if (temp.getEmployeeNumber() < this.employees[j].getEmployeeNumber()) {
+                    this.employees[j + 1] = this.employees[j];
+                    this.employees[j] = temp;
+                }
+                j--;
+            }
+        }
+
     }
 
     public static void main(String[] args) {
         EmployeeSorter sorter = new EmployeeSorter(4);
-        Employee emp1 = new Employee(100000009, "John","Doe", "john.doe@dsnalgos.com");
+        Employee emp1 = new Employee(100000009, "John", "Doe", "john.doe@dsnalgos.com");
         sorter.employees[0] = emp1;
-        Employee emp2 = new Employee(100000002, "Patrick","Dwight", "patrick.dwight@dsnalgos.com");
+        Employee emp2 = new Employee(100000002, "Patrick", "Dwight", "patrick.dwight@dsnalgos.com");
         sorter.employees[1] = emp2;
-        Employee emp3 = new Employee(100000011, "Marlo","Thomas", "marlo.thomas@dsnalgos.com");
+        Employee emp3 = new Employee(100000011, "Marlo", "Thomas", "marlo.thomas@dsnalgos.com");
         sorter.employees[2] = emp3;
-        Employee emp4 = new Employee(100000004, "Barbara","Weatherspoon", "barbara.weatherspoon@dsnalgos.com");
+        Employee emp4 = new Employee(100000004, "Barbara", "Weatherspoon", "barbara.weatherspoon@dsnalgos.com");
         sorter.employees[3] = emp4;
         sorter.sort();
         System.out.println(Arrays.deepToString(sorter.employees));
@@ -49,7 +69,7 @@ class Employee {
     private String lastName;
     private String emailId;
 
-    public Employee(int employeeNumber, String firstName, String lastName, String emailId){
+    public Employee(int employeeNumber, String firstName, String lastName, String emailId) {
         this.employeeNumber = employeeNumber;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -70,5 +90,3 @@ class Employee {
                 '}';
     }
 }
-
-

@@ -13,13 +13,13 @@ import java.time.LocalTime;
 
 public class DuplicateChecker {
 
-    public boolean hasDuplicateChars(String s){
+    public boolean hasDuplicateChars(String s) {
         char[] chars = s.toCharArray();
 
-        for(int i=0; i<=chars.length-1; i++){
+        for (int i = 0; i <= chars.length - 1; i++) {
             char current = chars[i];
-            for(int j=i+1; j<=chars.length-1; j++){
-                if(current == chars[j]){
+            for (int j = i + 1; j <= chars.length - 1; j++) {
+                if (current == chars[j]) {
                     return true;
                 }
             }
@@ -27,26 +27,28 @@ public class DuplicateChecker {
         return false;
     }
 
-    public boolean hasDuplicateASCIIChars(String s){
-        char[] chars = s.toCharArray();
+    public boolean hasDuplicateASCIIChars(String s) {
 
-        for(int i=0; i<=chars.length-1; i++){
-            char current = chars[i];
-            for(int j=i+1; j<=chars.length-1; j++){
-                if(current == chars[j]){
-                    return true;
-                }
+        int[] charArray = new int[256];
+
+        for (char c : s.toCharArray()) {
+            if (charArray[c] != 0) {
+                return true;
+            } else {
+                charArray[c]++;
             }
         }
         return false;
     }
 
-    public static void main(String... args){
+    public static void main(String... args) {
 
         DuplicateChecker duplicateChecker = new DuplicateChecker();
 
         System.out.println(LocalTime.now());
         System.out.println(duplicateChecker.hasDuplicateChars("anaconda"));
+        System.out.println(LocalTime.now());
+        System.out.println(duplicateChecker.hasDuplicateASCIIChars("anaconda"));
         System.out.println(LocalTime.now());
         System.out.println(duplicateChecker.hasDuplicateChars("great"));
         System.out.println(LocalTime.now());
