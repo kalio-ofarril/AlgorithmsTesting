@@ -1,4 +1,4 @@
-package chapter6;
+package Recursion;
 
 import java.util.Arrays;
 
